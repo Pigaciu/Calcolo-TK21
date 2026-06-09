@@ -1,0 +1,79 @@
+<!DOCTYPE html><!DOCTYPE html</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f4f6f8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .box {
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        text-align: center;
+        width: 320px;
+    }
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        font-size: 16px;
+    }
+    button {
+        padding: 10px;
+        width: 100%;
+        background: #0078D7;
+        color: white;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    button:hover {
+        background: #005fa3;
+    }
+    .result {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Calcolo Serbatoio</h2>
+    
+    <label>Livello (cm)</label>
+    <input type="number" id="livello" placeholder="Inserisci cm">
+
+    <button onclick="calcola()">Calcola</button>
+
+    <div class="result" id="output"></div>
+</div>
+
+<script>
+function calcola() {
+    let cm = parseFloat(document.getElementById("livello").value);
+
+    if (isNaN(cm) || cm < 0) {
+        document.getElementById("output").innerHTML = "Inserire un valore valido";
+        return;
+    }
+
+    const volume = cm * 183.3;
+    const kg = volume * 0.85;
+
+    document.getElementById("output").innerHTML =
+        "Volume: " + volume.toFixed(1) + " L<br>" +
+        "Giacenza: " + kg.toFixed(1) + " Kg";
+}
+</script>
+
+</body>
+</html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
